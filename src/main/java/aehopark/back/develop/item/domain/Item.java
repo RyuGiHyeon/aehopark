@@ -1,4 +1,4 @@
-package aehopark.back.develop.item;
+package aehopark.back.develop.item.domain;
 
 import aehopark.back.develop.common.domain.Category;
 import jakarta.persistence.*;
