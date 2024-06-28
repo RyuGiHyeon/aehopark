@@ -6,11 +6,8 @@ import jakarta.persistence.Converter;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.util.Optional;
-
 @Getter
 @Builder
-@Converter
 public class ItemConverter {
     public static itemResponseDto.itemViewDto convertToDto(Item item){
         return itemResponseDto.itemViewDto.builder()
