@@ -22,4 +22,8 @@ public class BasketResDto {
             this.pic = item.getPic();
         }
     }
+
+    public static class ResDto {
+        String success = "success";
+    }
 }
