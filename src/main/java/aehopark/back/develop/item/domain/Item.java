@@ -2,12 +2,15 @@ package aehopark.back.develop.item.domain;
 
 import aehopark.back.develop.common.domain.Category;
 import jakarta.persistence.*;
-import lombok.NoArgsConstructor;
-import java.time.LocalDateTime;
+import lombok.*;
 
+import java.time.LocalDateTime;
 @Entity
+@Getter
+@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 @Table(name = "Item")
-@NoArgsConstructor
 public class Item {
 
     @Id
