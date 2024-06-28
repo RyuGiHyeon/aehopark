@@ -11,21 +11,22 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "addressId")
     private Long addressId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId", nullable = false)
     private User user;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "name")
     private String name;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "phone")
     private String phone;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "address")
     private String address;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "specAddress")
     private String specAddress;
 }

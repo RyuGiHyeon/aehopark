@@ -2,46 +2,53 @@ package aehopark.back.develop.user.domain;
 
 import aehopark.back.develop.common.domain.Region;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "User")
+@Table(name = "user")  // 소문자로 변경
+@Builder
+@Getter
+@AllArgsConstructor
 @NoArgsConstructor
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "userId")
     private Long userId;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "name")
     private String name;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "email")
     private String email;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "password")
     private String password;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "socialType", nullable = false)
     private String socialType;
 
-    @ManyToOne
-    @JoinColumn(name = "region", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "region")
     private Region region;
 
-    @Column(nullable = false, length = 1, columnDefinition = "char(1) default 'x'")
-    private char check = 'x';
+//    @Column(name = "check")
+//    private String check;
 
-    @Column(length = 50)
+    @Column(name = "pic")
     private String pic;
 
-    @Column(nullable = false)
+    @Column(name = "createdAt")
     private LocalDateTime createdAt;
 
-    @Column(nullable = false)
+    @Column(name = "updatedAt")
     private LocalDateTime updatedAt;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "status")
     private String status;
 }

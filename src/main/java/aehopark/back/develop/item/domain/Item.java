@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Builder
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Table(name = "Item")
@@ -15,30 +16,34 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "itemId")
     private Long itemId;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "brand", nullable = false)
+    private String brand;
+
+    @Column(name = "itemName", nullable = false)
     private String itemName;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoryId", nullable = false)
     private Category category;
 
-    @Column(length = 50)
+    @Column(name = "pic")
     private String pic;
 
-    @Column(nullable = false)
+    @Column(name = "price", nullable = false)
     private Long price;
 
-    @Column(nullable = false, columnDefinition = "int default 0")
+    @Column(name = "amount", nullable = false, columnDefinition = "int default 0")
     private int amount;
 
-    @Column(nullable = false)
+    @Column(name = "createdAt", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(nullable = false)
+    @Column(name = "updatedAt", nullable = false)
     private LocalDateTime updatedAt;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "status", nullable = false)
     private String status;
 }

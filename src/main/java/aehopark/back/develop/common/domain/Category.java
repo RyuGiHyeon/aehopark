@@ -10,8 +10,9 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "categoryId")
     private Long categoryId;
 
-    @Column(length = 50)
-    private String categoryName;
+    @Column(name = "category")
+    private String category;
 }
